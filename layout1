@@ -1,0 +1,36 @@
+<div class="pagination-layout1">
+    <div class="btn-prev">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"><i
+                    class="fas fa-angle-double-left"></i>قبلی</a>
+        {% endif %}
+    </div>
+
+    <div class="page-number">
+        {% if page_obj.number|add:'-3' > 0 %}
+            <a href="?page={{ page_obj.number|add:'-3' }}">{{ page_obj.number|add:'-3' }}</a>
+        {% endif %}
+        {% if page_obj.number|add:'-2' > 0 %}
+            <a href="?page={{ page_obj.number|add:'-2' }}">{{ page_obj.number|add:'-2' }}</a>
+        {% endif %}
+        {% if page_obj.number|add:'-1' > 0 %}
+            <a href="?page={{ page_obj.number|add:'-1' }}">{{ page_obj.number|add:'-1' }}</a>
+        {% endif %}
+        <a class="active" href="?page={{ page_obj.number }}">{{ page_obj.number }}</a>
+        {% if page_obj.number|add:'1' <= page_obj.paginator.num_pages %}
+            <a href="?page={{ page_obj.number|add:'1' }}">{{ page_obj.number|add:'1' }}</a>
+        {% endif %}
+        {% if page_obj.number|add:'2' < page_obj.paginator.num_pages %}
+            <a href="?page={{ page_obj.number|add:'2' }}">{{ page_obj.number|add:'2' }}</a>
+        {% endif %}
+        {% if page_obj.number|add:'3' < page_obj.paginator.num_pages %}
+            <a href="?page={{ page_obj.number|add:'3' }}">{{ page_obj.number|add:'3' }}</a>
+        {% endif %}
+    </div>
+    <div class="btn-next">
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">بعدی<i
+                    class="fas fa-angle-double-right"></i></a>
+        {% endif %}
+    </div>
+</div>
